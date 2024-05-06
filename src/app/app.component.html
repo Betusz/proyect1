@@ -32,7 +32,7 @@
       <div class="card-header">Lista de Productos</div>
       <div class="card-body text-primary">
         <div class="table-responsive">
-          <table class="table">
+          <table class="table" *ngIf="products && products.length">
             <thead>
               <tr>
                 <th>
@@ -49,13 +49,14 @@
                 <th>Rating</th>
               </tr>
             </thead>
-            <tr>
-              <td>Una imagen</td>
-              <td>Producto 1</td>
-              <td>123456</td>
-              <td>10</td>
-              <td>100</td>
-              <td>5</td>
+            <tr *ngFor="let product of products">
+              <td><img src={{product.imageUrl}} title="Imagen del Producto" width="100">
+              </td>
+              <td>{{product.productName}}</td>
+              <td>{{product.productCode}}</td>
+              <td>{{product.releaseDate}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.starRating}}</td>
             </tr>
           </table>
         </div>
